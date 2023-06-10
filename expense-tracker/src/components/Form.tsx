@@ -1,67 +1,35 @@
-import React, { useState } from "react";
+// import { FieldValues, useForm } from "react-hook-form";
+// import { z } from "zod";
 
-interface FormData {
-  description: string;
-  amount: number;
-  category: string;
-}
+// const schema = z.object ({
+//     name : z.string().min(3),
+//     age : z.number().min(18)
+// })
 
-const MyForm: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    description: "",
-    amount: 0,
-    category: "",
-  });
+// type FormData = z.infer<typeof schema>;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+import React from "react";
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Perform any further processing with the form data
-    console.log(formData);
-  };
-
+const Form = () => {
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="description">Description:</label>
-        <input
-          type="text"
-          id="description"
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-        />
+    <form>
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label">
+          Name
+        </label>
+        <input id="name" type="text" className="form-control" />
       </div>
-      <div>
-        <label htmlFor="amount">Amount:</label>
-        <input
-          type="number"
-          id="amount"
-          name="amount"
-          value={formData.amount}
-          onChange={handleChange}
-        />
+      <div className="mb-3">
+        <label htmlFor="age" className="form-label">
+          Age
+        </label>
+        <input id="age" type="number" className="form-control" />
       </div>
-      <div>
-        <label htmlFor="category">Category:</label>
-        <input
-          type="text"
-          id="category"
-          name="category"
-          value={formData.category}
-          onChange={handleChange}
-        />
-      </div>
-      <button type="submit">Submit</button>
+      <button className="btn btn-primary" type="submit">
+        Submit
+      </button>
     </form>
   );
 };
 
-export default MyForm;
+export default Form;
