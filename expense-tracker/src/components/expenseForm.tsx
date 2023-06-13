@@ -1,13 +1,14 @@
 import React from "react";
+import { categories } from "../App";
 
-function ExpenseForm() {
+const ExpenseForm = () => {
   return (
     <form>
       <div className="mb-3">
         <label htmlFor="description" className="form-label">
           Description
         </label>
-        <input id="description " type="text" className="form-control" />
+        <input id="description" type="text" className="form-control" />
       </div>
       <div className="mb-3">
         <label htmlFor="amount" className="form-label">
@@ -20,7 +21,7 @@ function ExpenseForm() {
           Category
         </label>
         <select id="category" className="form-select">
-          <option value=""> </option>
+          <option value=""></option>
           {categories.map((category) => (
             <option key={category} value={category}>
               {category}
@@ -31,7 +32,6 @@ function ExpenseForm() {
       <button className="btn btn-primary">Submit</button>
     </form>
   );
-}
-import { categories } from "../App";
+};
 
 export default ExpenseForm;
