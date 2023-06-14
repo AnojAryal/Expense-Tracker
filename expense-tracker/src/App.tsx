@@ -3,8 +3,7 @@ import ExpenseFilter from "./components/ExpenseFilter";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
 import { useState } from "react";
-
-export const categories = ["Groceries", "Utilities", "Entertainment"];
+import categories from "./categories";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("");
